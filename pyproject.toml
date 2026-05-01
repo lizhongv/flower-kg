@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flower-kg"
+version = "0.1.0"
+description = "花卉知识图谱：基于 Neo4j 构建的花卉百科知识图谱"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "siren", email = "siren@alumni.nd.edu" }]
+keywords = ["knowledge-graph", "neo4j", "flower", "crawler", "chinese-nlp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: Chinese (Simplified)",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "requests>=2.28",
+    "lxml>=4.9",
+    "pandas>=1.5",
+    "numpy>=1.23",
+    "openpyxl>=3.1",
+    "py2neo>=2021.2",
+    "PyYAML>=6.0",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+flower-kg = "flower_kg.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/flower-kg"
+Repository = "https://github.com/your-org/flower-kg"
+
+[tool.setuptools.packages.find]
+include = ["flower_kg*"]
+exclude = ["data*", "docs*", "tests*"]

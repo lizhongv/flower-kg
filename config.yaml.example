@@ -1,0 +1,34 @@
+# flower-kg 配置文件模板
+# 使用方式：cp config.yaml.example config.yaml，按需修改
+# 注意：敏感字段（密码、Cookie）从 .env 读取，不要写在这里
+
+# 数据根目录（爬取产物 + 知识图谱源数据）
+data_dir: ./data
+
+crawler:
+  # 目标站点
+  base_url: http://www.aihuhua.com
+  home_path: /hua/
+
+  # HTTP 行为
+  request_timeout: 15        # 单请求超时秒数
+  page_sleep_seconds: 0.5    # 翻页间隔，控速以避免被封
+
+  # 缓存目录（首次抓取的主页 HTML 会落盘到此处，复跑时复用）
+  cache_dir: ./data/cache
+
+  # 请求头（Cookie 从 .env 注入）
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+
+neo4j:
+  # Neo4j HTTP 地址
+  uri: http://localhost:7474/
+  user: neo4j
+  # password 从 .env 读取（必填）
+
+# 日志
+logging:
+  level: INFO              # DEBUG / INFO / WARNING / ERROR
+  log_file: null           # 设为路径（如 ./logs/flower_kg.log）以同时写入文件

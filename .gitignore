@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# 敏感配置（请勿提交）
+.env
+config.yaml
+
+# 缓存数据（爬虫中间产物，可重新生成）
+data/cache/
+
+# IDE / 工具状态
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+.DS_Store
+
+# 日志
+logs/
+*.log
+
+# 测试 / 覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
